@@ -9,17 +9,26 @@ pub fn part2(instructions: &[i32]) -> i32 {
 }
 
 pub fn generator(input: &str) -> Vec<i32> {
-    let mut instructions: Vec<i32> = input.lines().next().unwrap().chars()
+    _generator(input).expect("Unable to parse input")
+}
+
+fn _generator(input: &str) -> Result<Vec<i32>, String> {
+    let mut instructions: Vec<i32> = input.lines()
+        .next()
+        .ok_or_else(|| "Empty input".to_string())?
+        .chars()
         .map(|c| match c {
-            '(' => 1,
-            ')' => -1,
-            _ => unreachable!()
+            '(' => Ok(1),
+            ')' => Ok(-1),
+            _ => Err(format!("Unexpected character: {c}").to_string()),
         })
-        .collect();
+        .collect::<Result<Vec<i32>, String>>()?;
+
     for i in 1..instructions.len() {
         instructions[i] += instructions[i-1];
-    }
-    instructions
+    }                                        
+
+    Ok(instructions)
 }
 
 #[cfg(test)]

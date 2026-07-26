@@ -19,9 +19,15 @@ pub fn part2(presents: &[Vec<u32>]) -> u32 {
 }
 
 pub fn generator(input: &str) -> Vec<Vec<u32>> {
+    _generator(input).expect("Failed to parse input")
+}
+
+fn _generator(input: &str) -> Result<Vec<Vec<u32>>, String> {
     input
         .lines()
-        .map(|l| l.split("x").map(|l| l.parse::<u32>().unwrap()).collect())
+        .map(|l| l.split("x")
+            .map(|l| l.parse::<u32>().map_err(|e|e.to_string()))
+            .collect::<Result<Vec<u32>, String>>())
         .collect()
 }
 
