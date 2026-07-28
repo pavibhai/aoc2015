@@ -53,7 +53,7 @@ impl Answers {
     }
 
     fn write(&self, directory: &str) {
-        let f = std::fs::OpenOptions::new()
+        let f = fs::OpenOptions::new()
           .write(true)
           .create(true)
           .truncate(true)
