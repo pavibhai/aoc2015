@@ -209,7 +209,7 @@ NOT y -> i";
         );
 
         // Depends On
-        assert_eq!(bt.depends_on[bt.signal_ids["x"]], vec![]);
+        assert!(bt.depends_on[bt.signal_ids["x"]].is_empty());
         assert_eq!(
             bt.depends_on[bt.signal_ids["e"]],
             vec![bt.signal_ids["x"], bt.signal_ids["y"]]
