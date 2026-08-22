@@ -36,7 +36,7 @@ impl Guests {
             } else {
                 -1
             };
-            let number = (first.next().ok_or("Missing number")?)
+            let number = first.next().ok_or("Missing number")?
                 .parse::<u32>()
                 .map_err(|_| format!("Invalid number: {}", first_person))?;
             let ids_len = ids.len();
