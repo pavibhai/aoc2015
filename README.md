@@ -3,8 +3,8 @@
 
 # Advent of Code 2015 <a id="AdventofCode2015"></a>
 
-I have been trying out advent of code to help me learn Rust it has been so much fun. I owe a big thanks to [Owen O'Malley](https://github.com/omalley) for introducing AOC to me and
-for the [harness](https://github.com/omalley/advent_of_code_2023).
+I have been trying out advent of code to help me learn Rust it has been so much fun. I owe a big thanks
+to [Owen O'Malley](https://github.com/omalley) for introducing AOC to me and for the [harness](https://github.com/omalley/advent_of_code_2023).
 
 The harness has made many things much easier, letting us focus on the problem and the solution.
 
